@@ -2,15 +2,16 @@
 
 # Full Stack open CI/CD
 
-This repository is used for the CI/CD module of the Full stack open course
+Aplicacion Backend Node (qué hace??):    app.js
+Aplicacion Frontend React:  dist/index.html + bundle.js
 
-Fork the repository to complete course exercises
+
 
 ## Commands
 
 Start by running `npm install` inside the project folder
 
-`npm start` to run the webpack dev server
+`npm dev` to run the webpack dev server
 `npm test` to run tests
 `npm run eslint` to run eslint
 `npm run build` to make a production build
