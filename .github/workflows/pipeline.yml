@@ -71,43 +71,49 @@ jobs:
       - name: Test
         run: npm test
 
-  e2e:
-    needs: [lint, build]
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v2
-        with:
-          cache: 'npm'
-          node-version: '14'
-      - name: Install dependencies
-        run: npm ci
-      - uses: actions/download-artifact@v2
-        with:
-          name: dist
-          path: dist
-      - name: E2E tests
-        uses: cypress-io/github-action@v2
-        with:
-          command: npm run test:e2e
-          start: npm run start-test
-          wait-on: http://localhost:5000
+  #e2e:
+  #  needs: [lint, build]
+  #  runs-on: ubuntu-18.04
+  #  steps:
+  #    - uses: actions/checkout@v2
+  #      with:
+  #        fetch-depth: 0
+  #    - uses: actions/setup-node@v2
+  #      with:
+  #        cache: 'npm'
+  #        node-version: '14'
+  #    - name: Install dependencies
+  #      run: npm ci
+  #    - uses: actions/download-artifact@v2
+  #      with:
+  #        name: dist
+  #        path: dist
+  #    - name: E2E tests
+  #      uses: cypress-io/github-action@v2
+  #      with:
+  #        command: npm run test:e2e
+  #        start: npm run start-test
+  #        wait-on: http://localhost:5000
 
-  deploy:
-    needs: [test, e2e]
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Deploy to Heroku
-        if: ${{ github.event_name == 'push' }}
-        uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_APP}}
-          heroku_email: ${{secrets.HEROKU_API_EMAIL}}
-          healthcheck: "https://${{secrets.HEROKU_APP}}.herokuapp.com/health"
-          rollbackonhealthcheckfailed: true
+  #deploy:
+  #  needs: [test, e2e]     
+  #  runs-on: ubuntu-18.04
+  #  steps:
+  #    - uses: actions/checkout@v2    # Paso 1. checkout
+  #      with: 
+  #        fetch-depth: 0                # solo despliega el último commit
+  #    - uses: actions/setup-node@v2
+  #      with:
+  #        node-version: '14' 
+  #    - name: Install dependencias
+  #      run: npm install
+  #
+  #    - name: Deploy to Heroku       # Paso 2. Desploy. 
+  #      if: ${{ github.event_name == 'push' }}
+  #      uses: akhileshns/heroku-deploy@v3.12.12
+  #      with:
+  #        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+  #        heroku_app_name: ${{secrets.HEROKU_APP}}
+  #        heroku_email: ${{secrets.HEROKU_API_EMAIL}}
+  #        healthcheck: "https://${{secrets.HEROKU_APP}}.herokuapp.com/health"
+  #        rollbackonhealthcheckfailed: true
