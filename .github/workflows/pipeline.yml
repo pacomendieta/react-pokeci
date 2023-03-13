@@ -96,7 +96,7 @@ jobs:
   #        wait-on: http://localhost:5000
 
   deploy:
-    needs: [test, e2e]     
+    needs: [test, build]     
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2    # Paso 1. checkout
