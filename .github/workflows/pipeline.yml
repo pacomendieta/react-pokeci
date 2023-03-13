@@ -99,10 +99,10 @@ jobs:
     needs: [test, build]     
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2    # Paso 1. checkout
+      - uses: actions/checkout@v3    # Paso 1. checkout
         with: 
           fetch-depth: 0                # solo despliega el último commit
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: '14' 
       - name: Install dependencias
