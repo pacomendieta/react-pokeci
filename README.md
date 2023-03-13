@@ -12,7 +12,7 @@ Aplicacion Frontend React:  dist/index.html + bundle.js
 
 Start by running `npm install` inside the project folder
 
-`npm dev` to run the webpack dev server
+`npm dev` to run the webpack dev server, app react en localhost:8080
 `npm test` to run tests
 `npm run eslint` to run eslint
 `npm run build` to make a production build
