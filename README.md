@@ -2,8 +2,9 @@
 
 # Full Stack open CI/CD
 
-Aplicacion Backend Node (qué hace??):    app.js
+Aplicacion Backend Node (qué hace?? solo muestra info ?? ):    app.js
 Aplicacion Frontend React:  dist/index.html + bundle.js
+      Presenta en pantalla una coleccion de fichas de pokemos
 
 
 

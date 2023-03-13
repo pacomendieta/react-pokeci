@@ -95,19 +95,21 @@ jobs:
   #        start: npm run start-test
   #        wait-on: http://localhost:5000
 
-  #deploy:
-  #  needs: [test, e2e]     
-  #  runs-on: ubuntu-18.04
-  #  steps:
-  #    - uses: actions/checkout@v2    # Paso 1. checkout
-  #      with: 
-  #        fetch-depth: 0                # solo despliega el último commit
-  #    - uses: actions/setup-node@v2
-  #      with:
-  #        node-version: '14' 
-  #    - name: Install dependencias
-  #      run: npm install
-  #
+  deploy:
+    needs: [test, e2e]     
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2    # Paso 1. checkout
+        with: 
+          fetch-depth: 0                # solo despliega el último commit
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14' 
+      - name: Install dependencias
+        run: npm install
+      - name: Eslint validacion
+        run: npm run eslint
+  
   #    - name: Deploy to Heroku       # Paso 2. Desploy. 
   #      if: ${{ github.event_name == 'push' }}
   #      uses: akhileshns/heroku-deploy@v3.12.12
