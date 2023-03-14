@@ -13,8 +13,8 @@ app.get('/version', (req, res) => {
   res.send(version)
 })
 
-app.use(express.static('dist'))
+app.use(express.static('dist')) //servidor html en el build de React
 
 app.listen(PORT, () => {
-  console.log(`server started on port ${PORT}`)
+  console.log(`server started on port ${PORT}. App React hmtl de /dist/index.html en localhost:${PORT}`)
 })
