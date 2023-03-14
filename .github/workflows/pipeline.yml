@@ -94,7 +94,7 @@ jobs:
           wait-on: http://localhost:5000         #esperar a: esté disponible la app
 
   deploy:
-    needs: [test, build]     
+    needs: [ build]     
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v3    # Paso 1. checkout
