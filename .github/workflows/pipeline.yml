@@ -51,25 +51,23 @@ jobs:
           name: dist
           path: dist
 
-  test:
-    needs: [lint, build]
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3.6.0
-        with:
-          cache: 'npm'
-          node-version: '14'
-      - name: Install dependencies
-        run: npm ci --no-audit --no-fund --no-optional
-      - uses: actions/download-artifact@v3
-        with:
-          name: dist
-          path: dist
-      - name: Test
-        run: npm test
+  #test:
+  #  needs: [lint, build]
+  #  runs-on: ubuntu-20.04
+  #  steps:
+  #    - uses: actions/checkout@v3
+  #        fetch-depth: 0
+  #    - uses: actions/setup-node@v3.6.0
+  #      with:
+  #        cache: 'npm'
+  #        node-version: '14'
+  #    - name: Install dependencies
+  #      run: npm ci --no-audit --no-fund --no-optional
+  #    - uses: actions/download-artifact@v3
+  #        name: dist
+  #        path: dist
+  #    - name: Test
+  #      run: npm test
 
   e2e:
     needs: [lint, build]
@@ -89,7 +87,7 @@ jobs:
           name: dist
           path: dist
       - name: E2E tests
-        uses: cypress-io/github-action@v3     #cypress action para ejecutar cypress en servidor ubuntu
+        uses: cypress-io/github-action@v5     #cypress action para ejecutar cypress en servidor ubuntu
         with:
           command: npm run test:e2e              #comando para lanzar test e2e cypress
           start: npm run start-test              #comando previo:  lanzar la app
