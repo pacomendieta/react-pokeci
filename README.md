@@ -2,10 +2,15 @@
 
 # Full Stack open CI/CD
 
-Aplicacion Backend Node (qué hace?? solo muestra info ?? ):    app.js
-Aplicacion Frontend React:  dist/index.html + bundle.js
-      Presenta en pantalla una coleccion de fichas de pokemos
+Aplicacion Backend Node  app.js:
+  - Lanza un html server con la app frontend react en dist/index.html
+  - Algunos endpoints informativos
 
+Aplicacion Frontend React:  dist/index.html + bundle.js
+      Presenta en pantalla una coleccion de fichas de pokemonss
+
+GitHub Actions: en .github/workflows:  
+    pipeline.yml    Evento push, lanza test con jest y cypress y deploy
 
 
 ## Commands
