@@ -3,14 +3,18 @@
 # Full Stack open CI/CD
 
 Aplicacion Backend Node  app.js:
-  - Lanza un html server con la app frontend react en dist/index.html
+  - Lanza un express html server con la app frontend react en dist/index.html
   - Algunos endpoints informativos
 
 Aplicacion Frontend React:  dist/index.html + bundle.js
       Presenta en pantalla una coleccion de fichas de pokemonss
 
+RUN APP:  
+       node app.js    --->http://localhost:5001
+   
+
 GitHub Actions: en .github/workflows:  
-    pipeline.yml    Evento push, lanza test con jest y cypress y deploy
+    pipeline.yml    Evento push, lanza test con jest, test con cypress y deploy
 
 
 ## Commands
