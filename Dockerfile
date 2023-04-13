@@ -1,6 +1,5 @@
 #BUILD APP REACT
 FROM node:18.14.1-alpine 
-#FROM node:12-alpine3.12 AS build
 WORKDIR /
 COPY package.json ./
 RUN npm install
